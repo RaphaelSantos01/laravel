@@ -2,4 +2,5 @@
 
 @section('conteudo')
     @include('site.layouts._partials.menu')
-@endsection
+
+

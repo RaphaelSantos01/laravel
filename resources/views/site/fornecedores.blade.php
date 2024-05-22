@@ -23,4 +23,8 @@
         Status: {{ $fornecedor['status'] ?? 'Sem status definido!' }}
         <hr>
     @endforeach
+
 @endisset
+
+@endisset
+
