@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('produto_detalhes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('produto_id');
             $table->float('comprimento', 8, 2);
             $table->float('largura', 8, 2);
             $table->float('altura', 8, 2);
             $table->timestamps();
+
+            $table->foreign('produto_id')->references('id')->on('produtos');
+            $table->unique('produto_id'); //garante relacionamento 1 para 1
         });
     }
 
@@ -25,7 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $table->foreign('produto_id')->references('id')->on('produtos');
-        $table->unique('produto_id'); //garante relacionamento 1 para 1
+        Schema::dropIfExists('produto_detalhes');
     }
 };
