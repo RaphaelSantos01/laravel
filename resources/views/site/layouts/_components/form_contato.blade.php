@@ -10,7 +10,10 @@
                         <label for="email" class="form-label">E-mail</label>
                         <input type="email" class="form-control" id="email" name="email">
                     </div>
-
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="telefone">
+                    </div>
                     <div class="mb-3">
                         <label for="mensagem" class="form-label">Mensagem</label>
                         <input type="text" class="form-control" id="mensagem" name="mensagem">
