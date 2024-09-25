@@ -28,9 +28,25 @@ class ContatoController extends Controller
         // //dd($contato);
         // $contato->save();
 
-        $contato = new Contato();
-        $contato->create($request->all());
+        // $contato = new Contato();
+        // $contato->create($request->all());
 
         return View('site.contato', ['pagina' => 'Página de ']);
+    }
+
+    public function salvar(Request $request) {
+        
+        //Validar os campos antes de inserir
+        $request->validate([
+            'nome' => 'required|min:3|max:40|unique:contatos',
+            'telefone' => 'required|min:9|max:20',
+            'email' => 'email',
+            'motivo_contato' => 'required',
+            'mensagem' => 'required|max:2000'
+        ]);
+
+        //inserir os campos se for validado
+        Contato::create($request->all());
+        return redirect()->route('site.principal');
     }
 }
